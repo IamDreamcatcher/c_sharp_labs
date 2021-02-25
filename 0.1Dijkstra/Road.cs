@@ -1,5 +1,7 @@
-﻿namespace Dijkstra {
-    public class Road {
+﻿namespace Dijkstra
+{
+    public class Road
+    {
         public City firstCity { get; set; }
         public City secondCity { get; set; }
         public int cost { get; set; }
