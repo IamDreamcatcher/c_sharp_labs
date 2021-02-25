@@ -9,7 +9,7 @@ namespace Dijkstra
         {
             if (x.Item1 < y.Item1) return -1;
             if (x.Item1 > y.Item1) return 1;
-            return 0;
+            return x.Item2.name.CompareTo(y.Item2.name);
         }
     }
 }

@@ -9,13 +9,13 @@ namespace Dijkstra
         static void Main(string[] args)
         {
             Console.Write("Enter the number of routes:\n");
-            int NumberOfRoutes = Reader.ReadInt();
+            int numberOfRoutes = Reader.ReadInt();
             Console.Write("Enter info about routes in format: start finish cost\n");
             HashSet<string> cities = new HashSet<string>();
-            Road[] roads = Reader.ReadArray(NumberOfRoutes, cities);
+            Road[] roads = Reader.ReadArray(numberOfRoutes, cities);
             int numberOfCities = cities.Count;
             Dictionary<City, List<Road>> edges = new Dictionary<City, List<Road>>();
-            for (int i = 0; i < NumberOfRoutes; i++)
+            for (int i = 0; i < numberOfRoutes; i++)
             {
                 if (!edges.ContainsKey(roads[i].firstCity))
                 {
@@ -33,6 +33,16 @@ namespace Dijkstra
             HashSet<City> marks = new HashSet<City>();
             Dictionary<City, int> distance = new Dictionary<City, int>();
             Dictionary<City, City> ancestor = new Dictionary<City, City>();
+
+            q.Add(new Tuple<int, City>(2, startCity));
+            q.Add(new Tuple<int, City>(1, startCity));
+            q.Add(new Tuple<int, City>(0, startCity));
+            q.Add(new Tuple<int, City>(0, finishCity));
+            while (q.Count !=0 ) {
+                Console.WriteLine("{0} {1}", q.First().Item1, q.First().Item2.name);
+                q.Remove(q.First());
+            }
+
             q.Add(new Tuple<int, City>(0, startCity));
             distance.Add(startCity, 0);
 
