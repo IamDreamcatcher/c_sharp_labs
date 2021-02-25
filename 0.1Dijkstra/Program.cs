@@ -34,15 +34,6 @@ namespace Dijkstra
             Dictionary<City, int> distance = new Dictionary<City, int>();
             Dictionary<City, City> ancestor = new Dictionary<City, City>();
 
-            q.Add(new Tuple<int, City>(2, startCity));
-            q.Add(new Tuple<int, City>(1, startCity));
-            q.Add(new Tuple<int, City>(0, startCity));
-            q.Add(new Tuple<int, City>(0, finishCity));
-            while (q.Count !=0 ) {
-                Console.WriteLine("{0} {1}", q.First().Item1, q.First().Item2.name);
-                q.Remove(q.First());
-            }
-
             q.Add(new Tuple<int, City>(0, startCity));
             distance.Add(startCity, 0);
 
