@@ -14,7 +14,7 @@ namespace Dijkstra
             if (this == obj) return true;
             if ((obj == null) || !this.GetType().Equals(obj.GetType())) return false;
             City p = (City)obj;
-            return name == p.name;
+            return name.Equals(p.name);
         }
         public override int GetHashCode()
         {
