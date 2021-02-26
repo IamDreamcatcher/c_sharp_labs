@@ -7,13 +7,13 @@ namespace Dijkstra
     {
         public static int ReadInt()
         {
-            int NumberOfRoutes;
-            while (!int.TryParse(Console.ReadLine(), out NumberOfRoutes)
-                || NumberOfRoutes < 1 || NumberOfRoutes > 100000)
+            int numberOfRoutes;
+            while (!int.TryParse(Console.ReadLine(), out numberOfRoutes)
+                || numberOfRoutes < 1 || numberOfRoutes > 100000)
             {
                 Console.Write("Wrong format, enter the correct number.\n");
             }
-            return NumberOfRoutes;
+            return numberOfRoutes;
         }
         public static City ReadName(HashSet<string> cities)
         {
