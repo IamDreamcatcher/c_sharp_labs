@@ -6,11 +6,11 @@ namespace Human
     class Humans {
         int numberOfHumans = 0;
         private Dictionary<int, Human> People;
-        public Human()
+        public Humans()
         {
             People = new Dictionary<int, Human>();
         }
-        public Humans this[int index] {
+        public Human this[int index] {
             get
             {
                 if (index < 0 && index >= numberOfHumans)
@@ -23,10 +23,9 @@ namespace Human
             {
                 if (index != value.Id)
                 {
-                    throw new Exception("There is no vehicle with such id\n");
+                    throw new Exception("There is no Human with such id\n");
                 }
-                
-                People[value.Id] = value;
+                People[index] = value;
                 numberOfHumans++;
             }
         }

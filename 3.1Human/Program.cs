@@ -24,7 +24,12 @@ namespace Human
             
             Human thirdHuman = new Human("Tanya", "love", "ISP", new DateTime(2001, 3, 23),
                 Genders.Female, 56.3, 173.6, "Belarus, Minsk");
-            Console.WriteLine(thirdHuman);
+            Humans People = new Humans();
+            People[firstHuman.Id] = firstHuman;
+            People[secondHuman.Id] = secondHuman;
+            People[thirdHuman.Id] = thirdHuman;
+
+            Console.WriteLine(People[thirdHuman.Id]);
             Console.WriteLine("Age : {0}", thirdHuman.GetAge());
             Console.WriteLine("Body Mass Index : {0}", thirdHuman.CalculateBodyMassIndex());
         }
