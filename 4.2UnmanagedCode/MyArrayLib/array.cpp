@@ -1,15 +1,9 @@
 #include "array.h"
 #include <algorithm>
 
-int GetSize(int* a) 
-{
-    return sizeof(a)/sizeof(int);
-}
-
-int SumOfArray(int a[]) 
+int SumOfArray(int a[], int size) 
 {
     int sum = 0;
-    int size = GetSize(a);
     for (int i = 0; i < size; i++) 
     {
         sum += a[i];
@@ -17,9 +11,8 @@ int SumOfArray(int a[])
     return sum;
 }
 
-int MinInArray(int a[])
+int MinInArray(int a[], int size)
 {
-    int size = GetSize(a);
     if (size == 0) {
         return 0;
     }
@@ -32,10 +25,8 @@ int MinInArray(int a[])
     return minimum; 
 }
 
-int MaxInArray(int a[])
-{
-    int size = GetSize(a);
-    
+int MaxInArray(int a[], int size)
+{    
     if (size == 0) {
         return 0;
     }
@@ -48,39 +39,12 @@ int MaxInArray(int a[])
     return maximum;
 }
 
-double Average(int a[])
-{
-    int size = GetSize(a);
-    
+double Average(int a[], int size)
+{    
     if (size == 0) {
         return 0;
     }
-    int sum = SumOfArray(a);
+    int sum = SumOfArray(a, size);
     
     return 1.0 * sum / size;
-}
-
-int* Reverse(int a[])
-{
-    int size = GetSize(a);
-    int* new_a = new int[size];
-    
-    for (int i = 0; i < size; i++) {
-        new_a[i] = a[size - i];
-    }
-
-    return new_a;
-}
-
-int* Sort(int a[])
-{
-    int size = GetSize(a);
-    int* new_a = new int[size];
-
-    for (int i = 0; i < size; i++)
-    {
-        new_a[i] = a[i];
-    }
-    std::sort(new_a, new_a + size);
-    return new_a;
 }
