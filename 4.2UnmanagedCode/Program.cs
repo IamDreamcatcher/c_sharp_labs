@@ -8,10 +8,10 @@ namespace UnmanagedCode
         [DllImport("ArrayLib.dll", CallingConvention = CallingConvention.StdCall)]
         static extern int SumOfArray(int[] a, int size);
 
-        [DllImport("ArrayLib.dll", CallingConvention = CallingConvention.StdCall)]
+        [DllImport("ArrayLib.dll", CallingConvention = CallingConvention.Cdecl)]
         static extern int MaxInArray(int[] a, int size);
 
-        [DllImport("ArrayLib.dll", CallingConvention = CallingConvention.StdCall)]
+        [DllImport("ArrayLib.dll", CallingConvention = CallingConvention.Cdecl)]
         static extern int MinInArray(int[] a, int size);
 
         [DllImport("ArrayLib.dll", CallingConvention = CallingConvention.StdCall)]
