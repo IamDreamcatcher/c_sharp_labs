@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Human
+namespace Cafe
 {
     class Humans {
         int numberOfHumans = 0;

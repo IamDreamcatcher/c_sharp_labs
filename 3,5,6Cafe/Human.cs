@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Human
+namespace Cafe
 {
     public enum Genders
     {
@@ -8,26 +8,26 @@ namespace Human
         Female,
         Undefined
     }
-    public class Human
+    public abstract class Human : IComparable<Human>
     {
         private static int currentId;
         public int Id { get; }
         public string Name { get; set; }
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
-        public double Weight { get; set; }
-        public double Height { get; set; }
         public string Address { get; set; }
         public Genders Gender { get; set; }
         public DateTime DateOfBirth { get;}
+
+        public bool IsInCafe { get; set; }
         public Human()
         {
             Id = currentId++;
             Name = SecondName = ThirdName = "-";
             Gender = Genders.Undefined;
-            Weight = Height = 0;
             DateOfBirth = DateTime.Now;
             Address = null;
+            IsInCafe = false;
         }
         public Human(string name, string secondname, string thirdName, DateTime dateOfBirth, Genders gender)
         {
@@ -37,11 +37,11 @@ namespace Human
             DateOfBirth = dateOfBirth;
             ThirdName = thirdName;
             Gender = gender;
-            Weight = Height = 0;
             Address = null;
+            IsInCafe = false;
         }
-        public Human(string name, string secondname, string thirdName, DateTime dateOfBirth, Genders gender,
-            double weight, double height, string adress = null)
+        public Human(string name, string secondname, string thirdName,
+            DateTime dateOfBirth, Genders gender, string address = null)
         {
             Id = currentId++;
             Name = name;
@@ -49,16 +49,34 @@ namespace Human
             DateOfBirth = dateOfBirth;
             ThirdName = thirdName;
             Gender = gender;
-            Weight = weight;
-            Height = height;
-            Address = adress;
+            Address = address;
+            IsInCafe = false;
         }
 
-        public double CalculateBodyMassIndex()
+        public virtual bool EnterTheCafe()
         {
-            double heightInMeters = Height * 0.01;
-            return Weight / (heightInMeters * heightInMeters);
+            if (IsInCafe == true)
+            {
+                Console.WriteLine("Person is in cafe");
+                return false;
+            }
+
+            IsInCafe = true;
+            return true;
         }
+
+        public virtual bool LeaveTheCafe()
+        {
+            if (IsInCafe == false)
+            {
+                Console.WriteLine("Person isn't in cafe");
+                return false;
+            }
+
+            IsInCafe = false;
+            return true;
+        }
+
         public int GetAge()
         {
             int age = DateTime.Now.Year - DateOfBirth.Year;
@@ -69,19 +87,50 @@ namespace Human
             }
             return age;
         }
+
+        public int CompareTo(Human o)
+        {
+            if (o == null)
+            {
+                return -1;
+            }
+            if (Id > o.Id)
+            {
+                return 1;
+            }
+            if (Id < o.Id)
+            {
+                return -1;
+            }
+
+            return 0;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (this == obj)
+            {
+                return true;
+            }
+            if ((obj == null) || !this.GetType().Equals(obj.GetType())) return false;
+            Human p = (Human)obj;
+            return Id.Equals(p.Id);
+        }
+        public override int GetHashCode()
+        {
+            return Id;
+        }
+
         public override string ToString() 
         {
-            return "Human{\n" +
-                "Id = " + Id + '\n' + 
+            return GetType().Name + ":\n" +
+                "Id = " + Id + '\n' +
                 "Name = " + Name + '\n' +
                 "SecondName = " + SecondName + '\n' +
                 "ThirdName = " + ThirdName + '\n' +
                 "Gender = " + Gender + '\n' +
-                "Adress = " + Address+ '\n' +
-                "DateOfBirth = " + DateOfBirth.ToString("yyyy-MM-dd") + '\n' +
-                "Weight = " + Weight + '\n' +
-                "Height = " + Height + '\n' +
-                '}';
+                "Adress = " + Address + '\n' +
+                "DateOfBirth = " + DateOfBirth.ToString("yyyy-MM-dd") + '\n';
         }
     }
 }
