@@ -42,7 +42,7 @@ namespace Cafe
             {
                 return;
             }
-            Clients.Add(client);
+            Clients.Remove(client);
         }
 
         public void EmployeeExited(Employee employee)
@@ -51,7 +51,7 @@ namespace Cafe
             {
                 throw new Exception("This employee is busy or doesn't exist\n");
             }
-            Employees.Add(employee);
+            Employees.Remove(employee);
         }
 
         public void AddOrder(Client client, List<Dish> dishes)

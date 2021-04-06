@@ -57,9 +57,10 @@ namespace Cafe
         {
             if (IsInCafe == true)
             {
-                Console.WriteLine("Person is in cafe");
+                Console.WriteLine("Human is in cafe");
                 return false;
             }
+            Console.WriteLine("Human {0} enter the cafe", Name);
 
             IsInCafe = true;
             return true;
@@ -69,10 +70,11 @@ namespace Cafe
         {
             if (IsInCafe == false)
             {
-                Console.WriteLine("Person isn't in cafe");
+                Console.WriteLine("Human isn't in cafe");
                 return false;
             }
-
+            Console.WriteLine("Human {0} leave the cafe", Name);
+            
             IsInCafe = false;
             return true;
         }

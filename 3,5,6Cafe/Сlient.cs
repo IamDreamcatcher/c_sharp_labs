@@ -43,11 +43,11 @@ namespace Cafe
             bool result = base.EnterTheCafe();
             if (result == true)
             {
-                Console.WriteLine("Client {0} enter the cafe", Name);
+                Console.WriteLine("Client {0} enter the cafe\n", Name);
             }
             else
             {
-                Console.WriteLine("Client {0} was already in the cafe", Name);
+                Console.WriteLine("Client {0} was already in the cafe\n", Name);
             }
             return result;
         }
@@ -57,11 +57,11 @@ namespace Cafe
             bool result = base.LeaveTheCafe();
             if (result == true)
             {
-                Console.WriteLine("Client {0} leave the cafe", Name);
+                Console.WriteLine("Client {0} leave the cafe\n", Name);
             }
             else
             {
-                Console.WriteLine("Сlient {0} was not in the cafe", Name);
+                Console.WriteLine("Сlient {0} was not in the cafe\n", Name);
             }
             return result;
         }
