@@ -13,6 +13,8 @@ namespace Cafe
                 Genders.Female, "Belarus, Minsk");
             Client thirdClient = new Client(1311141, 10, 0, "Sasha", "The", "Smasher", new DateTime(1986, 8, 8),
                 Genders.Male, "Ukraine, Kiev");
+            IMovable movableClient = new Client();
+            movableClient.EnterTheCafe();
 
             Employee firstEmployee = new Employee(1111111, 7, 0, "Employee1", "Hate", "you", new DateTime(1965, 11, 1), Genders.Male);
             firstEmployee.Address = "Rio, Brazil";

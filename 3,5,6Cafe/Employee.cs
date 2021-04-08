@@ -2,7 +2,7 @@
 
 namespace Cafe
 {
-    public class Employee : Human, IMovable
+    public class Employee : Human
     {
         public double Salary { get; private set; }
         public double Rating { get; private set; }

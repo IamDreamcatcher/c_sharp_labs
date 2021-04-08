@@ -8,7 +8,7 @@ namespace Cafe
         Female,
         Undefined
     }
-    public abstract class Human : IComparable<Human>
+    public abstract class Human : IComparable<Human>, IMovable
     {
         private static int currentId;
         public int Id { get; }
