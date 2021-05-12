@@ -49,7 +49,7 @@ namespace Cafe
         {
             if (!Employees.Contains(employee) || !employee.LeaveTheCafe())
             {
-                throw new Exception("This employee is busy or doesn't exist\n");
+                throw new CafeException("This employee is busy or doesn't exist");
             }
             Employees.Remove(employee);
         }
@@ -58,11 +58,11 @@ namespace Cafe
         {
             if (Employees.Count == 0)
             {
-                throw new Exception("No free employees:(\n");
+                throw new CafeException("No free employees:(");
             }
             if (!Clients.Contains(client))
             {
-                throw new Exception("There is no such client:(\n");
+                throw new CafeException("There is no such client:(");
             }
             Employee employee = Employees[0];
             Employees.Remove(Employees[0]);
@@ -73,7 +73,7 @@ namespace Cafe
         {
             if (Orders.Count == 0)
             {
-                throw new Exception("There is no orders:(\n");
+                throw new CafeException("There is no orders:(\n");
             }
             Order order = Orders.Dequeue();
             order.CompleteTheOrder();

@@ -10,6 +10,8 @@ namespace Cafe
     }
     public abstract class Human : IComparable<Human>, IMovable
     {
+        public delegate void MovingMessageHandler(string message);
+        public event MovingMessageHandler MovingEvent;
         private static int currentId;
         public int Id { get; }
         public string Name { get; set; }
@@ -57,10 +59,10 @@ namespace Cafe
         {
             if (IsInCafe == true)
             {
-                Console.WriteLine("Human is in cafe");
+                InvokeMovingEvent("Human is in cafe");
                 return false;
             }
-            Console.WriteLine("Human {0} enter the cafe", Name);
+            InvokeMovingEvent("Human " + Name + " enter the cafe");
 
             IsInCafe = true;
             return true;
@@ -70,11 +72,10 @@ namespace Cafe
         {
             if (IsInCafe == false)
             {
-                Console.WriteLine("Human isn't in cafe");
+                InvokeMovingEvent("Human " + Name + " isn't in cafe");
                 return false;
             }
-            Console.WriteLine("Human {0} leave the cafe", Name);
-            
+            InvokeMovingEvent("Human " + Name + " leave the cafe");
             IsInCafe = false;
             return true;
         }
@@ -133,6 +134,11 @@ namespace Cafe
                 "Gender = " + Gender + '\n' +
                 "Adress = " + Address + '\n' +
                 "DateOfBirth = " + DateOfBirth.ToString("yyyy-MM-dd") + '\n';
+        }
+
+        protected void InvokeMovingEvent(string message)
+        {
+            MovingEvent?.Invoke(message);
         }
     }
 }

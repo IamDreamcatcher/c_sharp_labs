@@ -37,12 +37,12 @@ namespace Cafe
         {
             if (isComplete == true)
             {
-                throw new Exception("The order was completed earlier\n");
+                throw new CafeException("The order was completed earlier");
             }
             if (Info.Client.AmountOfMoney < TotalCost)
             {
                 Info.Client.ChangeRating(Info.Client.Rating - 1.1);
-                throw new Exception("Clinet have no money ro pay\n");
+                throw new CafeException("Clinet have no money ro pay\n");
             }
             Info.Client.AmountOfMoney -= TotalCost;
             Info.Client.MoneySpent += TotalCost;

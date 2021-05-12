@@ -27,7 +27,7 @@ namespace Cafe
         {
             if (newRating < 0 || newRating > 10)
             {
-                throw new Exception("New rating is bad\n");
+                throw new CafeException("New rating is bad");
             }
             Rating = newRating;
         }
@@ -45,11 +45,11 @@ namespace Cafe
             bool result = base.EnterTheCafe();
             if (result == true)
             {
-                Console.WriteLine("Employee {0} enter the cafe\n", Name);
+                InvokeMovingEvent("Employee " + Name + " enter the cafe\n");
             }
             else
             {
-                Console.WriteLine("Employee {0} was already in the cafe\n", Name);
+                InvokeMovingEvent("Employee " + Name + " was already in the cafe\n");
             }
             return result;
         }
@@ -59,11 +59,11 @@ namespace Cafe
             bool result = base.LeaveTheCafe();
             if (result == true)
             {
-                Console.WriteLine("Employee {0} leave the cafe\n", Name);
+                InvokeMovingEvent("Employee " + Name + " leave the cafe");
             }
             else
             {
-                Console.WriteLine("Employee {0} was not in the cafe\n", Name);
+                InvokeMovingEvent("Employee " + Name + " was not in the cafe\n");
             }
             return result;
         }

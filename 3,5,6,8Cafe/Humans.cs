@@ -15,7 +15,7 @@ namespace Cafe
             {
                 if (index < 0 && index >= numberOfHumans)
                 {
-                    throw new Exception("There is no Human with such id\n");
+                    throw new CafeException("There is no Human with such id");
                 }
                 return People[index];
             }
@@ -23,7 +23,7 @@ namespace Cafe
             {
                 if (index != value.Id)
                 {
-                    throw new Exception("There is no Human with such id\n");
+                    throw new CafeException("There is no Human with such id");
                 }
                 People[index] = value;
                 numberOfHumans++;

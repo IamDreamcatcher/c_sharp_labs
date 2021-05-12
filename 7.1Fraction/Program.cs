@@ -9,14 +9,20 @@ namespace Fraction
         {
             List<Fraction> fractions = new List<Fraction>()
             {
-                new Fraction(5),
-                new Fraction(2, 3),
-                new Fraction(1.45),
-                Fraction.GetFraction("5/3"),
-                Fraction.GetFraction("-3(1/2)"),
+                Fraction.GetFraction("1/2"),
+                Fraction.GetFraction("2/4"),
+                Fraction.GetFraction("15,69"),
+                Fraction.GetFraction("21"),
+                Fraction.GetFraction("1/2"),
+                Fraction.GetFraction("2/4"),
+                Fraction.GetFraction("15,69"),
+                Fraction.GetFraction("21"),
+                Fraction.GetFraction("1/2"),
+                Fraction.GetFraction("2/4"),
                 Fraction.GetFraction("15,69"),
                 Fraction.GetFraction("21")
             };
+
 
             fractions.Add(fractions[0] + fractions[2]);
             fractions.Add(fractions[3] - fractions[1]);
@@ -45,7 +51,7 @@ namespace Fraction
             Console.WriteLine(Convert.ToString(testFraction));
 
             Console.WriteLine("\nComparison:");
-            Console.WriteLine(fractions[0] == fractions[9]);
+            Console.WriteLine(fractions[0] == fractions[1]);
             Console.WriteLine(fractions[3] != fractions[5]);
             Console.WriteLine(fractions[6] < fractions[8]);
             Console.WriteLine(fractions[1] >= fractions[7]);
